@@ -1,3 +1,11 @@
 Arthena project
 
 Submitted by Jacob Lewis
+
+To tackle this project, I took two different approaches. I began by looking over the data, cleaning and reformatting it, and reducing it to a minimally meaningful dataset. This is the file dataV1c that I added to git. I gave each painting a field called USD_value. USD_value is the maximum of either the hammer price or the average of the expected price, multiplied by the necessary exchange rate. I added a field called alive, which is a simple boolean saying whether or not the artist is currently alive, as I expected this field to be very predictive of price. I also corrected the execution date, as thousands of paintings had dates that were either in the future or before the artists birth. I did tthis by assuming that the actual date was in the middle of the artists career, which I calculated as being halfway between the artist's 20th birthday and his/her death. Lastly, I imputed data for all of the paintings that had only one positive dimension (which is obviously impossible), by expecting the width to be marginally smaller than the height. I also removed all paintings with no price information of any kind. 
+
+From this data, I added dumby variables for each categorical field (artist name, location, etc), which yielded 378 features. Because of the large number of features, I used ridge regression with an alpha of .5 (this hyperparameter should be further tuned) to help isolate significant features. This model yielded an rmse of $56k, which is pretty bad but expected from a barebones model. 
+
+Following this initial exploration, I began writing a predict function that could be called by importing this program. This function can be found in model2.ipynb, which also contains the answers to the other written questions that were asked. This function is unfinished, but contains all of the necessary logic and helper functions. Additionally, it is well documented and could be easily completed. I regret that I did not finish this assignment to completion, but I am eager to return to my family while on vacation. Thank you for this very interesting assignment. I made use of a virtual environment and pushed all of my code to github as per the instructions. All of the packages I needed for this project are imported at the beginning of my jupyter notebook. 
+
+  
